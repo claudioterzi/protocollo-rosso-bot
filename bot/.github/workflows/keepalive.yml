@@ -1,0 +1,17 @@
+name: keepalive-render
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Ping protocollo-rosso-bot
+        run: |
+          curl -fsS -m 90 "https://protocollo-rosso-bot.onrender.com/"
